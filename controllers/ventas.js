@@ -97,24 +97,19 @@ const obtenerListaProductos = async (req, res = response) => {
 const obtenerGananciaTotal = async (req, res = response) => {
 
     try {
-        const {
-            limite = 10,
-            desde = 0,
-        } = req.query;
 
         const query = {};
 
-        const [total, venta] = await Promise.all([
-            Venta.countDocuments(query),
-            Venta.find(query)
-                .populate('producto')
-                .skip(Number(desde))
-                .limit(Number(limite))
-        ]);
+        const ventas = await Venta.find(query).select({ monto: 1, _id: 0 });
+        
+        let total = 0;
+
+        ventas.forEach(venta => {
+            total+= venta.monto;
+        });
 
         res.json({
-            total,
-            venta
+            total
         });
 
     } catch (error) {
