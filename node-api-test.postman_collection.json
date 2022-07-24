@@ -1,0 +1,786 @@
+{
+	"info": {
+		"_postman_id": "eec43be4-d59b-458f-ada5-ce4c074f3f1f",
+		"name": "node-api-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "newUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Adrian Duardo Yanes\",\r\n    \"correo\":\"adrian.dy89@gmail.com\",\r\n    \"password\":\"mipassword123\",\r\n    \"img\":\"http://mi.imagen.com/id-123.jpg\",\r\n    \"rol\":\"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUsers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/usuarios",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Adrian Duardo Yanes\",\r\n    \"correo\":\"adrian.dy89@gmail.com\",\r\n    \"password\":\"as890201sa\",\r\n    \"img\":\"http://mi.imagen.com/id-1234.jpj\",\r\n    \"rol\":\"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/usuarios/62d8a1e81483ec2648c258a9",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"62d8a1e81483ec2648c258a9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							},
+							{
+								"key": "header-jwt",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MmQ4YTI2MjE0ODNlYzI2NDhjMjU4YWEiLCJpYXQiOjE2NTgzNjczMjYsImV4cCI6MTY1ODM2OTEyNn0.k-xFSH7E3LMwznK_cak78LxVN2SA3Y0Cnpj_SxoRdY8",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/usuarios/62d8a901b9c3ae176c7d27f6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"usuarios",
+								"62d8a901b9c3ae176c7d27f6"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\":\"adrian.dy89@gmail.com\",\r\n    \"password\":\"as890201sa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorias",
+			"item": [
+				{
+					"name": "newCategoria",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Bebidas23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategoria",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Bebidas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias/62d8bac393f6cd159075caae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"62d8bac393f6cd159075caae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategoria",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Electrodomesticos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/categorias/62d8bac393f6cd159075caae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"62d8bac393f6cd159075caae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategoria",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categorias/62d8bbbd93f6cd159075cab0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias",
+								"62d8bbbd93f6cd159075cab0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCategorias",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/categorias",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productos",
+			"item": [
+				{
+					"name": "newProducto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\":\"PC-425796\",\r\n    \"nombre\":\"PC\",\r\n    \"precio\": 240,\r\n    \"stock\": 3,\r\n    \"tags\": 5,\r\n    \"valoracion\": 5,\r\n    \"categoria\":\"62d8ba86099b310820aa19bf\",\r\n    \"descripcion\":\"TV grande\",\r\n    \"imagenes\":[\"http://tv-plasma.com/123.jpg\",\"http://tv-plasma/523.jpg\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProducto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\":\"tv-125465\",\r\n    \"nombre\":\"TV 55 pulgadas\",\r\n    \"precio\": 260,\r\n    \"stock\": 10,\r\n    \"tags\": 5,\r\n    \"valoracion\": 5,\r\n    \"categoria\":\"62d8ba86099b310820aa19bf\",\r\n    \"descripcion\":\"TV grande\",\r\n    \"imagenes\":[\"http://tv-plasma.com/623.jpg\",\"http://tv-plasma/523.jpg\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos/62d8c4f8cb111028d87b25ae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"62d8c4f8cb111028d87b25ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateProducto stock",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 9\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos/62d8c4f8cb111028d87b25ae",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"62d8c4f8cb111028d87b25ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProducto",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Electrodomesticos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/productos/62ddb8f374acd82860197e9d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"62ddb8f374acd82860197e9d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/productos/62d8c4a0cb111028d87b25ad",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"62d8c4a0cb111028d87b25ad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/productos",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProductosSinStock",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/productos/stock/0",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"stock",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCantProdXCaract",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/productos/cantidad/caracteristica?stock=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"productos",
+								"cantidad",
+								"caracteristica"
+							],
+							"query": [
+								{
+									"key": "stock",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ventas",
+			"item": [
+				{
+					"name": "newVenta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"producto\":\"62ddb8f374acd82860197e9d\",\r\n    \"usuario\":\"62d8a1e81483ec2648c258a9\",\r\n    \"monto\": 920\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ventas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateVenta",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"monto\":200\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ventas/62ddb159a1296e0f186d387e",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas",
+								"62ddb159a1296e0f186d387e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVenta",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Electrodomesticos\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/ventas/62ddaf202ed3a22ac0f5fb1a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas",
+								"62ddaf202ed3a22ac0f5fb1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteVenta",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ventas/62ddaf202ed3a22ac0f5fb1a",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas",
+								"62ddaf202ed3a22ac0f5fb1a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVentas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ventas",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVentasGanaciaTotal",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ventas/ganancia/total",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas",
+								"ganancia",
+								"total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getVentasListaProductos",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "header-jwt",
+								"value": "{{jwt}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/ventas/productos/vendidos?limite=5",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"ventas",
+								"productos",
+								"vendidos"
+							],
+							"query": [
+								{
+									"key": "limite",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
