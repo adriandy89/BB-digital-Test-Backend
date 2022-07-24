@@ -13,11 +13,13 @@
 
 
 - Usuario con rol administrador registrado en la Base de Datos MongoDB en la nuve:
+
+```
     {{url}}/auth/login
         {
             "correo":"bb.digital.chile@gmail.com",
             "password":"mipassword123"
         }
-
+```
 
 - Obtenga el token cuando se loguee y úselo para acceder a las rutas protegidas.
